@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.spring.boot.graphql.SpringBootGraphql.mode.Food;
 import com.spring.boot.graphql.SpringBootGraphql.repository.FoodRepository;
 
+import graphql.GraphQLException;
 import io.leangen.graphql.annotations.GraphQLArgument;
 import io.leangen.graphql.annotations.GraphQLContext;
 import io.leangen.graphql.annotations.GraphQLMutation;
@@ -27,7 +28,8 @@ public class FoodService {
 	
 	@GraphQLQuery(name = "foods")
 	public List<Food> getFoods() {
-		return foodRepository.findAll();
+		throw new GraphQLException("This endpoint is not working", null);
+		//return foodRepository.findAll();
 	}
 	
 	@GraphQLQuery(name = "food")
